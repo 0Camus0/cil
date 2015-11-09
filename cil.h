@@ -372,13 +372,13 @@ unsigned char*	load_pvr(ifstream &in_, int &x, int &y, unsigned char &mipmaps, u
 			widthBlocks = widthBlocks < 2 ? 2 : widthBlocks;
 			heightBlocks = heightBlocks < 2 ? 2 : heightBlocks;
 
-			//if (prop&CIL_ETC1) {
-			//	current_size = (currentHeight*currentWidth*bpp) / 8;
-			//	current_size = std::max(current_size, 8);
-			//}
-			//else {
+			if (prop&CIL_ETC1) {
+				current_size = (currentHeight*currentWidth*bpp) / 8;
+				current_size = std::max(current_size, 8);
+			}
+			else {
 				current_size = widthBlocks * heightBlocks * ((blockSize * bpp) / 8);
-			//}
+			}
 			for (unsigned int f = 0; f < header.faces; f++) {
 				final_size += current_size;
 			}
@@ -523,6 +523,7 @@ unsigned char*	load_ktx(ifstream &in_, int &x, int &y, unsigned char &mipmaps, u
 		in_.seekg(in_.tellg() + streampos(size));
 		totalSize += size;
 	}
+
 
 	buffersize = totalSize;
 
