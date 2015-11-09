@@ -3,7 +3,7 @@ Light weight image library, loads PVR and KTX supporting pvrtc, etc1, dxt1 and s
 
 It uses just a header cil.h.
 
-Work in progress. Still buggy with ktx and etc1.
+Work in progress, tested with: PVRTC2/PVRTC4/PVRTCII/ETC1/DXT1 both cube maps and textures 2D in both ktx and pvr.
 
 Example of use:
 
